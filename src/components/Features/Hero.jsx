@@ -8,23 +8,23 @@ const Hero = () => {
   const [percentageIncrease, setPercentageIncrease] = useState(null);
 
   const calculateBreakEven = () => {
-    if (investment && purchasePrice) {
-      // Calculate how many coins were purchased
-      const coinsQuantity = investment / purchasePrice;
-
-      // True break-even is simply the original purchase price (without fees)
-      const breakeven = purchasePrice;
-
-      // If you want to calculate profit targets, you can do it separately
-      // For example, 10% profit target would be:
-      // const profitTarget = (investment * 1.1) / coinsQuantity;
-
-      // Calculate current profit/loss percentage
-      const currentPercentage =
-        ((currentPrice - purchasePrice) / purchasePrice) * 100;
-
+    const investmentNum = parseFloat(investment);
+    const purchasePriceNum = parseFloat(purchasePrice);
+    const currentPriceNum = parseFloat(currentPrice);
+  
+    if (investmentNum > 0 && purchasePriceNum > 0) {
+      const coinsQuantity = investmentNum / purchasePriceNum;
+      const breakeven = purchasePriceNum;
+      console.log(breakeven)
+  
+      const currentPercentage = currentPriceNum
+        ? ((currentPriceNum - purchasePriceNum) / purchasePriceNum) * 100
+        : 0;
+  
       setBreakEvenPrice(breakeven.toFixed(2));
       setPercentageIncrease(currentPercentage.toFixed(2));
+    } else {
+      console.error("Invalid input: Investment and Purchase Price must be greater than 0.");
     }
   };
 
