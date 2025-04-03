@@ -34,7 +34,7 @@ const Disclaimer = () => {
             />
             <link rel="canonical" href="https://crypto-news.wiki/disclaimer/" />
             <title>
-            Disclaimer - Crypto Break Even Calculator
+            Disclaimer Page - Crypto Break Even Calculator
             </title>
           </Helmet>
     <div className="bg-[#0e1126] text-white">
